@@ -1,24 +1,25 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("Portfólio carregado!")
+
+  const projetos = [
+    { nome: "Projeto 1", descricao: "Descrição do projeto 1"},
+    { nome: "Projeto 2", descricao: "Descrição do projeto 2"},
+    { nome: "Projeto 3", descricao: "Descrição do projeto 3"}
+  ];
+
+  const listaProjetos = document.getElementById("lista-projetos");
+
+  projetos.forEach(projeto => {
+    const div = document.createElement("div");
+    div.classList.add("projeto");
+    div.innerHTML = `<h3>${projeto.nome}</h3><p>${projeto.descricao}</p>`;
+    listaProjetos.appendChild(div);
+  });
+
+});
+ 
 
 setupCounter(document.querySelector('#counter'))
